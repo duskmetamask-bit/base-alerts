@@ -1,0 +1,62 @@
+[
+  {
+    "id": "base-hackathon-2025",
+    "title": "Base Hackathon: Build Onchain",
+    "description": "48-hour hackathon for builders on Base. Ship a project using Base, smart wallets, or any onchain primitive. Prizes across DeFi, NFTs, social, and infra tracks.",
+    "category": "community",
+    "startDate": "2025-04-12T09:00:00Z",
+    "endDate": "2025-04-14T18:00:00Z",
+    "location": "Online",
+    "url": "https://base.org/hackathon"
+  },
+  {
+    "id": "base-ecosystem-summit-2025",
+    "title": "Base Ecosystem Summit",
+    "description": "Annual gathering of Base builders, investors, and community members. Keynotes from Coinbase and top Base protocols, followed by networking and demo day.",
+    "category": "conference",
+    "startDate": "2025-05-20T10:00:00Z",
+    "endDate": "2025-05-21T18:00:00Z",
+    "location": "San Francisco, CA",
+    "url": "https://base.org/summit"
+  },
+  {
+    "id": "onchain-summer-2025",
+    "title": "Onchain Summer 2025",
+    "description": "Base's flagship campaign returns. Mint exclusive NFTs, earn rewards, and explore the best of onchain culture built on Base.",
+    "category": "campaign",
+    "startDate": "2025-06-01T00:00:00Z",
+    "endDate": "2025-06-30T23:59:59Z",
+    "location": "Online",
+    "url": "https://onchainsummer.xyz"
+  },
+  {
+    "id": "base-builder-office-hours-april",
+    "title": "Base Builder Office Hours",
+    "description": "Monthly office hours with the Base team. Bring your questions about grants, technical architecture, and ecosystem opportunities. Open to all builders.",
+    "category": "community",
+    "startDate": "2025-04-24T17:00:00Z",
+    "endDate": "2025-04-24T18:30:00Z",
+    "location": "Online",
+    "url": "https://base.org/office-hours"
+  },
+  {
+    "id": "base-grants-wave-3",
+    "title": "Base Grants Wave 3 — Application Window",
+    "description": "Applications open for the third wave of Base ecosystem grants. Up to $250k available for projects building consumer apps, infrastructure, and developer tooling on Base.",
+    "category": "grant",
+    "startDate": "2025-04-01T00:00:00Z",
+    "endDate": "2025-04-30T23:59:59Z",
+    "location": "Online",
+    "url": "https://base.org/grants"
+  },
+  {
+    "id": "ethdenver-base-booth-2026",
+    "title": "Base at ETHDenver 2026",
+    "description": "Visit the Base booth at ETHDenver. Live demos, swag, and conversations with the Base core team. Base-specific workshops running throughout the event.",
+    "category": "conference",
+    "startDate": "2026-02-27T09:00:00Z",
+    "endDate": "2026-03-01T18:00:00Z",
+    "location": "Denver, CO",
+    "url": "https://ethdenver.com"
+  }
+]
