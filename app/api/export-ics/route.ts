@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createEvent, EventAttributes } from "ics";
-import events from "@/data/events.json";
+import eventsData from "@/data/events.json";
 import { Event } from "@/types";
+import { fetchLumaEvents } from "@/lib/luma";
 
 function toIcsDate(iso: string): [number, number, number, number, number] {
   const d = new Date(iso);
@@ -18,7 +19,14 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
 
-  const event = (events as Event[]).find((e) => e.id === id);
+  let lumaEvents: Event[] = [];
+  try {
+    lumaEvents = await fetchLumaEvents();
+  } catch {
+    // fall back to manual-only if Luma is unavailable
+  }
+  const allEvents = [...(eventsData as Event[]), ...lumaEvents];
+  const event = allEvents.find((e) => e.id === id);
   if (!event) {
     return NextResponse.json({ error: "Event not found" }, { status: 404 });
   }

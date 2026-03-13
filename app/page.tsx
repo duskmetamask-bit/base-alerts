@@ -1,10 +1,23 @@
 import EventCard from "@/components/EventCard";
-import eventsData from "@/data/events.json";
 import { Event } from "@/types";
 
-const events = eventsData as Event[];
+async function getEvents(): Promise<Event[]> {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_URL ??
+    `http://localhost:${process.env.PORT ?? 3000}`;
+  try {
+    const res = await fetch(`${baseUrl}/api/events`, {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) throw new Error(`${res.status}`);
+    return res.json();
+  } catch {
+    return [];
+  }
+}
 
-export default function Home() {
+export default async function Home() {
+  const events = await getEvents();
   const upcoming = events.filter((e) => new Date(e.endDate) > new Date());
   const past = events.filter((e) => new Date(e.endDate) <= new Date());
 

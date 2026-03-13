@@ -9,6 +9,7 @@ export interface Event {
   endDate: string;
   location: string;
   url: string;
+  lumaEventId?: string;
 }
 
 export interface Subscriber {
