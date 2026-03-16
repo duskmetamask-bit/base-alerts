@@ -1,21 +1,16 @@
+import fs from 'fs';
+import path from 'path';
 import EventCard from "@/components/EventCard";
 import { Event } from "@/types";
 
-async function getEvents(): Promise<Event[]> {
-  try {
-    const baseUrl = process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : 'http://localhost:3000';
-    const res = await fetch(`${baseUrl}/api/events`, { next: { revalidate: 300 } });
-    if (!res.ok) return [];
-    return res.json();
-  } catch {
-    return [];
-  }
+function getEvents(): Event[] {
+  const filePath = path.join(process.cwd(), 'data/events.json');
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  return JSON.parse(raw);
 }
 
-export default async function Home() {
-  const events = await getEvents();
+export default function Home() {
+  const events = getEvents();
   const upcoming = events.filter((e) => new Date(e.endDate ?? e.startDate) > new Date());
   const past = events.filter((e) => new Date(e.endDate ?? e.startDate) <= new Date());
 
