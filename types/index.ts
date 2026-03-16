@@ -10,6 +10,7 @@ export interface Event {
   location: string;
   url: string;
   lumaEventId?: string;
+  source?: "manual" | "luma";
 }
 
 export interface Subscriber {
