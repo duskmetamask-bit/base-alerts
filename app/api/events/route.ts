@@ -1,30 +1,15 @@
 import { NextResponse } from "next/server";
-import eventsData from "@/data/events.json";
+import { readFileSync } from "fs";
+import path from "path";
 import { Event } from "@/types";
-import { fetchLumaEvents } from "@/lib/luma";
 
 export async function GET() {
-  const manual = eventsData as Event[];
+  const filePath = path.join(process.cwd(), "data/events.json");
+  const events: Event[] = JSON.parse(readFileSync(filePath, "utf-8"));
 
-  let lumaEvents: Event[] = [];
-  try {
-    lumaEvents = await fetchLumaEvents();
-  } catch (err) {
-    console.error("Failed to fetch Luma events:", err);
-  }
-
-  // Dedupe: manual events win; skip Luma events whose lumaEventId matches any manual entry
-  const manualLumaIds = new Set(
-    manual.map((e) => e.lumaEventId).filter(Boolean)
-  );
-
-  const uniqueLuma = lumaEvents.filter(
-    (e) => !manualLumaIds.has(e.lumaEventId)
-  );
-
-  const merged = [...manual, ...uniqueLuma].sort(
+  const sorted = events.sort(
     (a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
   );
 
-  return NextResponse.json(merged);
+  return NextResponse.json(sorted);
 }

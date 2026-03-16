@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createEvent, EventAttributes } from "ics";
-import eventsData from "@/data/events.json";
+import { readFileSync } from "fs";
+import path from "path";
 import { Event } from "@/types";
-import { fetchLumaEvents } from "@/lib/luma";
 
 function toIcsDate(iso: string): [number, number, number, number, number] {
   const d = new Date(iso);
@@ -19,14 +19,10 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
 
-  let lumaEvents: Event[] = [];
-  try {
-    lumaEvents = await fetchLumaEvents();
-  } catch {
-    // fall back to manual-only if Luma is unavailable
-  }
-  const allEvents = [...(eventsData as Event[]), ...lumaEvents];
-  const event = allEvents.find((e) => e.id === id);
+  const filePath = path.join(process.cwd(), "data/events.json");
+  const events: Event[] = JSON.parse(readFileSync(filePath, "utf-8"));
+  const event = events.find((e) => e.id === id);
+
   if (!event) {
     return NextResponse.json({ error: "Event not found" }, { status: 404 });
   }
