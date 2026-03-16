@@ -2,14 +2,12 @@ import EventCard from "@/components/EventCard";
 import { Event } from "@/types";
 
 async function getEvents(): Promise<Event[]> {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_URL ??
-    `http://localhost:${process.env.PORT ?? 3000}`;
   try {
-    const res = await fetch(`${baseUrl}/api/events`, {
-      next: { revalidate: 300 },
-    });
-    if (!res.ok) throw new Error(`${res.status}`);
+    const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
+    const res = await fetch(`${baseUrl}/api/events`, { next: { revalidate: 300 } });
+    if (!res.ok) return [];
     return res.json();
   } catch {
     return [];
