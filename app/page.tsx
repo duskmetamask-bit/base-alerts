@@ -18,8 +18,8 @@ async function getEvents(): Promise<Event[]> {
 
 export default async function Home() {
   const events = await getEvents();
-  const upcoming = events.filter((e) => new Date(e.endDate) > new Date());
-  const past = events.filter((e) => new Date(e.endDate) <= new Date());
+  const upcoming = events.filter((e) => new Date(e.endDate ?? e.startDate) > new Date());
+  const past = events.filter((e) => new Date(e.endDate ?? e.startDate) <= new Date());
 
   return (
     <div
