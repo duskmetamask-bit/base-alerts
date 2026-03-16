@@ -50,6 +50,53 @@
     "url": "https://base.org/grants"
   },
   {
+    "id": "late-night-on-base",
+    "title": "Late Night on Base",
+    "description": "A podcast covering the Base ecosystem. New episodes dropping regularly.",
+    "category": "community",
+    "recurrence": "weekly",
+    "startDate": "2026-03-17T00:00:00Z",
+    "location": "Podcast",
+    "url": "https://x.com/base",
+    "source": "manual"
+  },
+  {
+    "id": "rbase-content-competition",
+    "title": "rBASE Weekly Content Competition",
+    "description": "Weekly content competition on the Base subreddit. Create and share Base ecosystem content to win. New thread posted each week.",
+    "category": "community",
+    "recurrence": "weekly",
+    "dayOfWeek": "Monday",
+    "startDate": "2026-03-17T00:00:00Z",
+    "location": "Reddit",
+    "url": "https://www.reddit.com/r/BASE",
+    "source": "manual"
+  },
+  {
+    "id": "rbase-weekly-discussion",
+    "title": "rBASE Weekly Discussion",
+    "description": "Weekly community discussion thread on the Base subreddit. Share what you're building, ask questions, and connect with other Base builders.",
+    "category": "community",
+    "recurrence": "weekly",
+    "startDate": "2026-03-17T00:00:00Z",
+    "location": "Reddit",
+    "url": "https://www.reddit.com/r/BASE",
+    "source": "manual"
+  },
+  {
+    "id": "founders-friday-spaces",
+    "title": "Founders Friday: Build on Base",
+    "description": "Weekly X Spaces hosted by the Base team every Friday. Builders, founders and the Base community connect, share and discuss what's being built onchain.",
+    "category": "community",
+    "recurrence": "weekly",
+    "dayOfWeek": "Friday",
+    "startDate": "2026-03-20T15:00:00Z",
+    "endDate": "2026-03-20T16:00:00Z",
+    "location": "X Spaces",
+    "url": "https://x.com/base",
+    "source": "manual"
+  },
+  {
     "id": "ethdenver-base-booth-2027",
     "title": "Base at ETHDenver 2027",
     "description": "Visit the Base booth at ETHDenver. Live demos, swag, and conversations with the Base core team. Base-specific workshops running throughout the event.",
